@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px;}
+</style>
+</head>
+<body>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+<!-- Header -->
+<header class="w3-panel w3-center w3-opacity" style="padding:128px 16px">
+  <h1 class="w3-xlarge">JAVA</h1>
+  <h1>Natokorn</h1>
+  
+  <div class="w3-padding-32">
+    <div class="w3-bar w3-border">
+      <a href="./index.html" class="w3-bar-item w3-button">Home</a>
+      <a href="./java.html" class="w3-bar-item w3-button w3-light-grey">Java</a>
+      <a href="/api.html" class="w3-bar-item w3-button">API</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small">Weddings</a>
+    </div>
+  </div>
+</header>
+ 
+<div class="java-body">
+  <h2 class="java-h2">Just change A - Z</h2>
+  <p id="demo">Hi</p>
+
+  <br>
+  <h2 class="java-h2">Click to change</h2>
+  <p id="demo2">Hi</p>
+  <button class="java-btn" onclick="myFunction()">Click me</button>
+  <br>
+
+  <br>
+  <h2 class="java-h2">Calculate number</h2>
+  <input id="numb">
+  <button class="java-btn" type="button" onclick="myFunction2()">Submit</button>
+  <p id="demo3"></p>
+
+  <br>
+  <div class="java-body">
+      <h2 class="java-h2">หาความยาวเส้นรอบวง</h2>
+      <input id="input" type="text" placeholder="รัศมี" fdprocessedid="1pjfaa" />
+      <button class="java-btn" onclick="calculateAndDisplayCircumference()"
+          fdprocessedid="kjvwr">คำนวน</button>
+      <h4>ความยาวเส้นรอบวงกลม : <span id="result"> </span></h4>
+  </div>
+
+  <div class="java-body">
+      <h2 class="java-h2">หาค่าอุณหภูมิ</h2>
+      <h4 class="java-h4"><span id="show1"></span></h4>
+      <button class="java-btn" onclick="fahrenheitToCelsius()" fdprocessedid="25h2qg">กดปุ่ม</button>
+  </div>
+  <div class="java-body">
+      <h2 class="java-h2">หาค่าวันต่อนาที</h2>
+      <input type="text" id="daysInput" fdprocessedid="1mel0p" />
+      <h4 class="java-h4"><span id="show2"></span></h4>
+      <button class="java-btn" onclick="dayToSeconds()" fdprocessedid="lky1nr">คำนวน</button>
+  </div>
+</div>
+
+<script>
+function printAlphabets() {
+    const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let index = 0;
+  
+    function displayAlphabet() {
+      const alphabet = alphabets[index];
+      document.getElementById("demo").innerHTML = alphabet;
+      console.log(alphabet);
+      index = (index + 1) % alphabets.length; // เพิ่ม index และทำการ modulo กับ 26 (จำนวนตัวอักษรในอัลฟาเบ็ต)
+      setTimeout(displayAlphabet, 1000); // 1000 milliseconds = 1 วินาที
+    }
+  
+    displayAlphabet();
+  }
+  
+  printAlphabets();
+  
+  
+  const messages = [
+    "Hello World",
+    "Hello There",
+    "Hello, What's up",
+    "Greetings!",
+    "Hi!",
+    "Hey!"
+  ];
+let currentIndex = 0;
+
+  function myFunction() {
+    if (currentIndex < messages.length) {
+      let currentMessage = messages[currentIndex];
+      document.getElementById("demo2").innerHTML = currentMessage;
+      currentIndex++;
+    }
+  }
+  
+    function myFunction2() {
+    // Get the value of the input field with id="numb"
+    let x = document.getElementById("numb").value;
+    // If x is Not a Number or less than one or greater than 10
+    let text;
+    if (isNaN(x) || x < 1 || x > 10) {
+      text = "Input not valid";
+    } else {
+      text = "Input OK";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  }
+function fahrenheitToCelsius() {
+                  let inputFahrenheit = prompt("Enter temperature in Fahrenheit:");
+                  let celsiusValue = (parseFloat(inputFahrenheit) - 32) * (5 / 9);
+                  document.getElementById(
+                      "show1"
+                  ).innerText = `Fahrenheit: ${inputFahrenheit}°F, Celsius: ${celsiusValue.toFixed(
+                2
+              )}°C`;
+              }
+  
+              function calculateCircleCircumference(radius) {
+                  return 2 * Math.PI * radius;
+              }
+  
+              function calculateAndDisplayCircumference() {
+                  let inputElement = document.getElementById("input");
+                  let resultElement = document.getElementById("result");
+  
+                  let radius = parseFloat(inputElement.value);
+  
+                  if (!isNaN(radius)) {
+                      let circumference = calculateCircleCircumference(radius);
+                      resultElement.textContent = circumference.toFixed(2);
+                  } else {
+                      resultElement.textContent = "กรุณากรอกค่าที่ถูกต้อง";
+                  }
+              }       
+              function dayToSeconds() {
+      let inputDays = document.getElementById("daysInput").value;
+      if (!isNaN(inputDays)) {
+          let seconds = inputDays * 86400;
+          document.getElementById("show2").innerText = `จำนวนวัน: ${inputDays} วัน, ${seconds} นาที`;
+      } else {
+          alert("Please enter a valid number of days.");
+      }
+  }
+
+
+</script>
+<canvas id="word" style="width:400%;max-width:900px"></canvas>
+
+<script>
+
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+;
+
+new Chart("word", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
+<canvas id="myChart" style="width:500%;max-width:1000px"></canvas>
+ <!-- About Section -->
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+
+<script>
+  
+const xyValues = [
+  {x:50, y:7},
+  {x:60, y:8},
+  {x:70, y:8},
+  {x:80, y:9},
+  {x:90, y:9},
+  {x:100, y:9},
+  {x:110, y:10},
+  {x:120, y:11},
+  {x:130, y:14},
+  {x:140, y:14},
+  {x:150, y:15}
+];
+
+new Chart("myChart", {
+  type: "scatter",
+  data: {
+    datasets: [{
+      pointRadius: 4,
+      pointBackgroundColor: "rgb(0,0,255)",
+      data: xyValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    scales: {
+      xAxes: [{ticks: {min: 40, max:160}}],
+      yAxes: [{ticks: {min: 6, max:16}}],
+    }
+  }
+});
+
+
+</script>
+<br>
+<canvas id="word" style="width:400%;max-width:900px"></canvas>
+
+<script>
+const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+const yValues = [55, 49, 44, 24, 15];
+const barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("word", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+});
+</script>
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+
+</body>
+</html>
